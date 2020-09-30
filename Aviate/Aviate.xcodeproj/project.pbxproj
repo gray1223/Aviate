@@ -1,0 +1,654 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AE18E6512521788B00F6D3FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18E6502521788B00F6D3FA /* AppDelegate.swift */; };
+		AE18E6532521788B00F6D3FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18E6522521788B00F6D3FA /* SceneDelegate.swift */; };
+		AE18E6552521788B00F6D3FA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18E6542521788B00F6D3FA /* ContentView.swift */; };
+		AE18E6572521789000F6D3FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE18E6562521789000F6D3FA /* Assets.xcassets */; };
+		AE18E65A2521789000F6D3FA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE18E6592521789000F6D3FA /* Preview Assets.xcassets */; };
+		AE18E65D2521789000F6D3FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE18E65B2521789000F6D3FA /* LaunchScreen.storyboard */; };
+		AE18E6682521789100F6D3FA /* AviateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18E6672521789100F6D3FA /* AviateTests.swift */; };
+		AE18E6732521789100F6D3FA /* AviateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18E6722521789100F6D3FA /* AviateUITests.swift */; };
+		AE18E6842521925000F6D3FA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18E6832521925000F6D3FA /* MapView.swift */; };
+		AE18E689252192B200F6D3FA /* TAFStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18E688252192B200F6D3FA /* TAFStorage.swift */; };
+		AE18E68E252192C700F6D3FA /* AirportStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18E68D252192C700F6D3FA /* AirportStorage.swift */; };
+		AE18E69B252192E600F6D3FA /* WeatherStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18E69A252192E600F6D3FA /* WeatherStorage.swift */; };
+		AE18E6A4252245F000F6D3FA /* METARMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18E6A3252245F000F6D3FA /* METARMap.swift */; };
+		AE18E6B42523E9F600F6D3FA /* METARTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18E6B32523E9F500F6D3FA /* METARTitleView.swift */; };
+		AE18E6B92523ECC200F6D3FA /* AirportReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18E6B82523ECC200F6D3FA /* AirportReport.swift */; };
+		AE18E6C12523F7C000F6D3FA /* METARReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18E6C02523F7C000F6D3FA /* METARReport.swift */; };
+		AE18E6C6252401CB00F6D3FA /* TAFReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18E6C5252401CB00F6D3FA /* TAFReport.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AE18E6642521789100F6D3FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE18E6452521788B00F6D3FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AE18E64C2521788B00F6D3FA;
+			remoteInfo = Aviate;
+		};
+		AE18E66F2521789100F6D3FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE18E6452521788B00F6D3FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AE18E64C2521788B00F6D3FA;
+			remoteInfo = Aviate;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AE18E64D2521788B00F6D3FA /* Aviate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aviate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE18E6502521788B00F6D3FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AE18E6522521788B00F6D3FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		AE18E6542521788B00F6D3FA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AE18E6562521789000F6D3FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AE18E6592521789000F6D3FA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AE18E65C2521789000F6D3FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AE18E65E2521789000F6D3FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE18E6632521789100F6D3FA /* AviateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AviateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE18E6672521789100F6D3FA /* AviateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AviateTests.swift; sourceTree = "<group>"; };
+		AE18E6692521789100F6D3FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE18E66E2521789100F6D3FA /* AviateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AviateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE18E6722521789100F6D3FA /* AviateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AviateUITests.swift; sourceTree = "<group>"; };
+		AE18E6742521789100F6D3FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE18E6832521925000F6D3FA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		AE18E688252192B200F6D3FA /* TAFStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TAFStorage.swift; sourceTree = "<group>"; };
+		AE18E68D252192C700F6D3FA /* AirportStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportStorage.swift; sourceTree = "<group>"; };
+		AE18E69A252192E600F6D3FA /* WeatherStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStorage.swift; sourceTree = "<group>"; };
+		AE18E6A3252245F000F6D3FA /* METARMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = METARMap.swift; sourceTree = "<group>"; };
+		AE18E6B32523E9F500F6D3FA /* METARTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = METARTitleView.swift; sourceTree = "<group>"; };
+		AE18E6B82523ECC200F6D3FA /* AirportReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportReport.swift; sourceTree = "<group>"; };
+		AE18E6C02523F7C000F6D3FA /* METARReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = METARReport.swift; sourceTree = "<group>"; };
+		AE18E6C5252401CB00F6D3FA /* TAFReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TAFReport.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AE18E64A2521788B00F6D3FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE18E6602521789100F6D3FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE18E66B2521789100F6D3FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AE18E6442521788B00F6D3FA = {
+			isa = PBXGroup;
+			children = (
+				AE18E64F2521788B00F6D3FA /* Aviate */,
+				AE18E6662521789100F6D3FA /* AviateTests */,
+				AE18E6712521789100F6D3FA /* AviateUITests */,
+				AE18E64E2521788B00F6D3FA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AE18E64E2521788B00F6D3FA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AE18E64D2521788B00F6D3FA /* Aviate.app */,
+				AE18E6632521789100F6D3FA /* AviateTests.xctest */,
+				AE18E66E2521789100F6D3FA /* AviateUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AE18E64F2521788B00F6D3FA /* Aviate */ = {
+			isa = PBXGroup;
+			children = (
+				AE18E6502521788B00F6D3FA /* AppDelegate.swift */,
+				AE18E6522521788B00F6D3FA /* SceneDelegate.swift */,
+				AE18E6542521788B00F6D3FA /* ContentView.swift */,
+				AE18E6CD25240B7200F6D3FA /* Supporting Views */,
+				AE18E69F252192F000F6D3FA /* Data Flow */,
+				AE18E6562521789000F6D3FA /* Assets.xcassets */,
+				AE18E65B2521789000F6D3FA /* LaunchScreen.storyboard */,
+				AE18E65E2521789000F6D3FA /* Info.plist */,
+				AE18E6582521789000F6D3FA /* Preview Content */,
+			);
+			path = Aviate;
+			sourceTree = "<group>";
+		};
+		AE18E6582521789000F6D3FA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				AE18E6592521789000F6D3FA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AE18E6662521789100F6D3FA /* AviateTests */ = {
+			isa = PBXGroup;
+			children = (
+				AE18E6672521789100F6D3FA /* AviateTests.swift */,
+				AE18E6692521789100F6D3FA /* Info.plist */,
+			);
+			path = AviateTests;
+			sourceTree = "<group>";
+		};
+		AE18E6712521789100F6D3FA /* AviateUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AE18E6722521789100F6D3FA /* AviateUITests.swift */,
+				AE18E6742521789100F6D3FA /* Info.plist */,
+			);
+			path = AviateUITests;
+			sourceTree = "<group>";
+		};
+		AE18E69F252192F000F6D3FA /* Data Flow */ = {
+			isa = PBXGroup;
+			children = (
+				AE18E688252192B200F6D3FA /* TAFStorage.swift */,
+				AE18E68D252192C700F6D3FA /* AirportStorage.swift */,
+				AE18E69A252192E600F6D3FA /* WeatherStorage.swift */,
+			);
+			path = "Data Flow";
+			sourceTree = "<group>";
+		};
+		AE18E6CD25240B7200F6D3FA /* Supporting Views */ = {
+			isa = PBXGroup;
+			children = (
+				AE18E6C02523F7C000F6D3FA /* METARReport.swift */,
+				AE18E6C5252401CB00F6D3FA /* TAFReport.swift */,
+				AE18E6B32523E9F500F6D3FA /* METARTitleView.swift */,
+				AE18E6B82523ECC200F6D3FA /* AirportReport.swift */,
+				AE18E6A3252245F000F6D3FA /* METARMap.swift */,
+				AE18E6832521925000F6D3FA /* MapView.swift */,
+			);
+			name = "Supporting Views";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AE18E64C2521788B00F6D3FA /* Aviate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE18E6772521789100F6D3FA /* Build configuration list for PBXNativeTarget "Aviate" */;
+			buildPhases = (
+				AE18E6492521788B00F6D3FA /* Sources */,
+				AE18E64A2521788B00F6D3FA /* Frameworks */,
+				AE18E64B2521788B00F6D3FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Aviate;
+			productName = Aviate;
+			productReference = AE18E64D2521788B00F6D3FA /* Aviate.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AE18E6622521789100F6D3FA /* AviateTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE18E67A2521789100F6D3FA /* Build configuration list for PBXNativeTarget "AviateTests" */;
+			buildPhases = (
+				AE18E65F2521789100F6D3FA /* Sources */,
+				AE18E6602521789100F6D3FA /* Frameworks */,
+				AE18E6612521789100F6D3FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AE18E6652521789100F6D3FA /* PBXTargetDependency */,
+			);
+			name = AviateTests;
+			productName = AviateTests;
+			productReference = AE18E6632521789100F6D3FA /* AviateTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AE18E66D2521789100F6D3FA /* AviateUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE18E67D2521789100F6D3FA /* Build configuration list for PBXNativeTarget "AviateUITests" */;
+			buildPhases = (
+				AE18E66A2521789100F6D3FA /* Sources */,
+				AE18E66B2521789100F6D3FA /* Frameworks */,
+				AE18E66C2521789100F6D3FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AE18E6702521789100F6D3FA /* PBXTargetDependency */,
+			);
+			name = AviateUITests;
+			productName = AviateUITests;
+			productReference = AE18E66E2521789100F6D3FA /* AviateUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AE18E6452521788B00F6D3FA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					AE18E64C2521788B00F6D3FA = {
+						CreatedOnToolsVersion = 12.0;
+					};
+					AE18E6622521789100F6D3FA = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = AE18E64C2521788B00F6D3FA;
+					};
+					AE18E66D2521789100F6D3FA = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = AE18E64C2521788B00F6D3FA;
+					};
+				};
+			};
+			buildConfigurationList = AE18E6482521788B00F6D3FA /* Build configuration list for PBXProject "Aviate" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AE18E6442521788B00F6D3FA;
+			productRefGroup = AE18E64E2521788B00F6D3FA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AE18E64C2521788B00F6D3FA /* Aviate */,
+				AE18E6622521789100F6D3FA /* AviateTests */,
+				AE18E66D2521789100F6D3FA /* AviateUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AE18E64B2521788B00F6D3FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE18E65D2521789000F6D3FA /* LaunchScreen.storyboard in Resources */,
+				AE18E65A2521789000F6D3FA /* Preview Assets.xcassets in Resources */,
+				AE18E6572521789000F6D3FA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE18E6612521789100F6D3FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE18E66C2521789100F6D3FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AE18E6492521788B00F6D3FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE18E6A4252245F000F6D3FA /* METARMap.swift in Sources */,
+				AE18E6B42523E9F600F6D3FA /* METARTitleView.swift in Sources */,
+				AE18E6B92523ECC200F6D3FA /* AirportReport.swift in Sources */,
+				AE18E6512521788B00F6D3FA /* AppDelegate.swift in Sources */,
+				AE18E69B252192E600F6D3FA /* WeatherStorage.swift in Sources */,
+				AE18E6842521925000F6D3FA /* MapView.swift in Sources */,
+				AE18E6532521788B00F6D3FA /* SceneDelegate.swift in Sources */,
+				AE18E68E252192C700F6D3FA /* AirportStorage.swift in Sources */,
+				AE18E689252192B200F6D3FA /* TAFStorage.swift in Sources */,
+				AE18E6C6252401CB00F6D3FA /* TAFReport.swift in Sources */,
+				AE18E6C12523F7C000F6D3FA /* METARReport.swift in Sources */,
+				AE18E6552521788B00F6D3FA /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE18E65F2521789100F6D3FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE18E6682521789100F6D3FA /* AviateTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE18E66A2521789100F6D3FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE18E6732521789100F6D3FA /* AviateUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AE18E6652521789100F6D3FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AE18E64C2521788B00F6D3FA /* Aviate */;
+			targetProxy = AE18E6642521789100F6D3FA /* PBXContainerItemProxy */;
+		};
+		AE18E6702521789100F6D3FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AE18E64C2521788B00F6D3FA /* Aviate */;
+			targetProxy = AE18E66F2521789100F6D3FA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AE18E65B2521789000F6D3FA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE18E65C2521789000F6D3FA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AE18E6752521789100F6D3FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AE18E6762521789100F6D3FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AE18E6782521789100F6D3FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Aviate/Preview Content\"";
+				DEVELOPMENT_TEAM = KUNY3UFC78;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Aviate/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.graysonbertaina.Aviate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AE18E6792521789100F6D3FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Aviate/Preview Content\"";
+				DEVELOPMENT_TEAM = KUNY3UFC78;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Aviate/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.graysonbertaina.Aviate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AE18E67B2521789100F6D3FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KUNY3UFC78;
+				INFOPLIST_FILE = AviateTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.graysonbertaina.AviateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aviate.app/Aviate";
+			};
+			name = Debug;
+		};
+		AE18E67C2521789100F6D3FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KUNY3UFC78;
+				INFOPLIST_FILE = AviateTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.graysonbertaina.AviateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aviate.app/Aviate";
+			};
+			name = Release;
+		};
+		AE18E67E2521789100F6D3FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KUNY3UFC78;
+				INFOPLIST_FILE = AviateUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.graysonbertaina.AviateUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Aviate;
+			};
+			name = Debug;
+		};
+		AE18E67F2521789100F6D3FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KUNY3UFC78;
+				INFOPLIST_FILE = AviateUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.graysonbertaina.AviateUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Aviate;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AE18E6482521788B00F6D3FA /* Build configuration list for PBXProject "Aviate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE18E6752521789100F6D3FA /* Debug */,
+				AE18E6762521789100F6D3FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE18E6772521789100F6D3FA /* Build configuration list for PBXNativeTarget "Aviate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE18E6782521789100F6D3FA /* Debug */,
+				AE18E6792521789100F6D3FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE18E67A2521789100F6D3FA /* Build configuration list for PBXNativeTarget "AviateTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE18E67B2521789100F6D3FA /* Debug */,
+				AE18E67C2521789100F6D3FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE18E67D2521789100F6D3FA /* Build configuration list for PBXNativeTarget "AviateUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE18E67E2521789100F6D3FA /* Debug */,
+				AE18E67F2521789100F6D3FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AE18E6452521788B00F6D3FA /* Project object */;
+}
