@@ -10,6 +10,8 @@ import Foundation
 
 struct WeatherData: Codable {
    
+    let clouds: [Cloud]?
+    let wxCodes: [Wxcodes]?
     let flight_rules: String?
     let remarks: String?
     let wind_speed: WindSpeed?
@@ -21,11 +23,19 @@ struct WeatherData: Codable {
     let temperature: Temperature?
     let raw: String?
     let dewpoint: Dewpoint?
+    let altimeter: Altimeter?
 }
 
-struct Clouds: Codable {
+struct Cloud: Codable {
+    var id = UUID()
     let type: String
-    let altitude: Int
+    let altitude: Decimal
+    
+    enum CodingKeys: String, CodingKey {
+        case type, altitude
+    }
+    
+    var altitudeString: String { NSDecimalNumber(decimal: self.altitude).stringValue }
 }
 
 struct Time: Codable {
@@ -55,6 +65,7 @@ struct Remarks: Codable {
 struct Altimeter: Codable {
     let repr: String?
     let spoken: String?
+    let value: Decimal?
 }
 
 struct Temperature: Codable {
@@ -69,6 +80,11 @@ struct Wxcodes: Codable {
     let value: String
 }
 
+extension Decimal {
+    
+    var string: String { NSDecimalNumber(decimal: self).stringValue }
+}
+
 // WeatherModel
 
 //
@@ -81,6 +97,8 @@ struct Wxcodes: Codable {
 import Foundation
 
 struct WeatherModel {
+    var clouds: [Cloud]
+    let wxCodes: [Wxcodes]
     let reportingStation: String
     let windGust: Int
     let windSpeed: Int
@@ -92,6 +110,7 @@ struct WeatherModel {
     let temperature: String
     let dewpoint: String
     let rawMETAR: String
+    let altimeter: Altimeter?
 
     
     var windGustString: String {
@@ -154,15 +173,17 @@ class WeatherManager: ObservableObject {
     
     @Published var weather: WeatherModel?
     
-    let weatherURL = "https://avwx.rest/api/metar/"
+    private let weatherURL = "https://avwx.rest/api/metar/"
     
 
     func fetchWeather (stationICAO: String) {
+        guard stationICAO.isEmpty == false else { return }
+        
         let urlString = "\(weatherURL)\(stationICAO)?token=OVi45FiTDo1LmyodShfOfoizNe5m9wyuO6Mkc95AN-c"
         performRequest(with: urlString)
     }
     
-    func performRequest (with urlString: String) {
+    private func performRequest (with urlString: String) {
         if let url = URL(string: urlString) {
             let session = URLSession(configuration: .default)
                 
@@ -174,14 +195,15 @@ class WeatherManager: ObservableObject {
                 }
                 
                 if let safeData = data {
-                    self.weather = self.parseJSON(safeData)
+                    print("Request URL String: " + urlString)
+                    print("API Response: " + safeData.jsonString)
+                    DispatchQueue.main.async {
+                        self.weather = self.parseJSON(safeData)
+                    }
                 }
             }
             
             task.resume()
-            print(urlString)
-            
-            
             }
         }
     
@@ -191,7 +213,9 @@ class WeatherManager: ObservableObject {
             let decoder = JSONDecoder()
             let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
 
-           
+            print("parse Cloud: ", decodedData.clouds?.count)
+            let clouds = decodedData.clouds ?? []
+            let codes = decodedData.wxCodes ?? []
             let reportingStationVar = decodedData.station ?? "N/A"
             let windGustValue = decodedData.wind_gust?.value ?? 0
             let windSpeedValue = decodedData.wind_speed?.value ?? 0
@@ -204,9 +228,7 @@ class WeatherManager: ObservableObject {
             let dewMETAR = decodedData.dewpoint?.repr ?? "No Data"
             let rawMETARData = decodedData.raw ?? "N/A"
             
-            
-            
-            let weather = WeatherModel(reportingStation: reportingStationVar, windGust: windGustValue, windSpeed: windSpeedValue, windDirection: windDirectionValue, visibility: visibilityValue, flightRules: flightRulesValue, time: timeReportedMETAR, remarks: remarksReportedMETAR, temperature: tempMETAR, dewpoint: dewMETAR, rawMETAR: rawMETARData)
+            let weather = WeatherModel(clouds: clouds, wxCodes: codes, reportingStation: reportingStationVar, windGust: windGustValue, windSpeed: windSpeedValue, windDirection: windDirectionValue, visibility: visibilityValue, flightRules: flightRulesValue, time: timeReportedMETAR, remarks: remarksReportedMETAR, temperature: tempMETAR, dewpoint: dewMETAR, rawMETAR: rawMETARData, altimeter: decodedData.altimeter)
             
             return weather
             
@@ -215,7 +237,17 @@ class WeatherManager: ObservableObject {
             return nil
         }
     }
-    
-    
+}
 
+extension Data {
+    
+    var jsonString: String {
+        do {
+            let json = try JSONSerialization.jsonObject(with: self, options: .allowFragments)
+            let data = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+            return String(data: data, encoding: .utf8)!
+        } catch let error {
+            return "Data can not be serialized to json with error: \(error.localizedDescription)"
+        }
+    }
 }

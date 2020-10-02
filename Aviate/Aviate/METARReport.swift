@@ -7,188 +7,102 @@
 //
 
 import SwiftUI
-import Foundation
-
+import Combine
 
 struct METARReport: View {
     
-    var model: WeatherModel?
+    @ObservedObject var weatherManager = WeatherManager()
     
-    @State var selected = 0
+    private var query: String
     
+    private var model: WeatherModel? { self.weatherManager.weather }
+    
+    private var clouds: [Cloud] {
+        self.weatherManager.weather?.clouds ?? []
+    }
+    
+    init(string: String) {
+        self.query = string
+        self.weatherManager.fetchWeather(stationICAO: query)
+    }
     
     var body: some View {
         ScrollView {
-            
             VStack{
-               
                 HStack{
-                    Text((self.model?.reportingStation ?? "N/A"))
-                        .font(.largeTitle)
-                    HStack{
-                        Spacer()
-                        Text("City" + ",")
-                        Text("State")
-                        }
-                        
+                    Text("METAR Report")
+                        .font(.title)
+                    
+                    Spacer()
+                    Text("Time: " + (self.weatherManager.weather?.time ?? ""))
+                        .font(.headline)
+                }
+                    
+                .padding()
+                
+                HStack{
+                    Text("Flight Raules")
+                    
+                    Spacer()
+                    Text("VFR")
+                        .padding()
+                        .background(Color.green)
+                    
                 }
                 .padding()
-
-                HStack {
-                    
-                    NavigationLink(destination: AirportView(search: "KDAB")) {
-                            Text("Airport Information")
-                        }
-                        .padding()
-                        
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                }
+                .font(.headline)
                 
-               
-                
-               
-                    
-                    HStack{
-                        
-                        NavigationLink(destination: METARView(search: "KDAB")) {
-                            Button(action: {
-                                self.selected = 0
-                                
-                                print("Button Pressed")
-                            }) {
-                                Text("METAR")
-                                    .frame(width: 100, height: 30)
-                                    .padding(.vertical,5)
-                                    .padding(.horizontal,1)
-                                    .background(self.selected == 0 ? Color.blue : Color.clear)
-                                    .clipShape(Capsule())
-                                    
-                            }
-                            .foregroundColor(self.selected == 0 ? Color.white : Color.blue)
-                            
-                            }
-                        
-                        NavigationLink(destination: TAFView(search: "KDAB"))  {
-                        Button(action: {
-                            
-                            self.selected = 1
-                            print("Button Pressed")
-                        }) {
-                            Text("TAF")
-                                .frame(width: 100, height: 30)
-                                .padding(.vertical,5)
-                                .padding(.horizontal,1)
-                                .background(self.selected == 1 ? Color.blue : Color.clear)
-                                .clipShape(Capsule())
-                            
-                        }
-                        .foregroundColor(self.selected == 1 ? Color.white : Color.blue)
-                        
-                    }
-                        
-                   
-                    
-                }.padding(8)
-                    .background((Color("Color")))
-                    .clipShape(Capsule())
-                
-            }
-                   
-                }
-            
-            VStack{
-            HStack{
-                Text("METAR Report")
-                    .font(.title)
-                    
-                Spacer()
-                Text("Time: " + (self.model?.time ?? ""))
-                    .font(.headline)
-            }
-            
-            .padding()
-            
-            HStack{
-                Text("Flight Rules")
-                  
-                Spacer()
-                Text((self.model?.flightRules ?? "N/A"))
-                    .padding()
-                    .background(Color.green)
-                 
-            }
-            .padding()
-            .font(.headline)
-            
                 HStack(spacing: 20){
                     VStack(alignment: .leading){
                         Text("Visibility")
-                          
+                        
                         Spacer()
-                        Text((self.model?.visibility ?? "N/A") + " SM")
-                            
-                           
+                        Text((self.model?.visibility ?? "10") + " SM")
+                        
+                        
                     }
                     
                     
                     VStack(alignment: .leading){
                         Text("Temperature")
-                          
+                        
                         Spacer()
-                        Text((self.model?.temperature ?? "N/A") + " °C")
-                         
-                           
+                        Text((self.model?.temperature ?? "25") + " °C")
+                        
+                        
                     }
                     
                     VStack(alignment: .leading){
                         Text("Dew Point")
-                          
+                        
                         Spacer()
-                        Text((self.model?.dewUnits ?? "N/A"))
-                           
-                           
+                        Text((self.model?.dewpoint ?? "") + " °C")
+                        
+                        
                     }
-                 
-            }
-            .padding()
-            .font(.headline)
+                    
+                }
+                .padding()
+                .font(.headline)
                 
-                VStack(alignment: .center){
+                VStack {
                     Text("Clouds")
                         .font(.headline)
-                        .padding()
-                        
-                    HStack() {
-                        Text("Few")
-                        Spacer()
-                    
-                        Text("1200")
-                    }
-                    .padding()
-                    HStack() {
-                        Text("Few")
-                        Spacer()
-                    
-                        Text("1200")
-                    }
-                    .padding()
-                    HStack() {
-                        Text("Few")
-                        Spacer()
-                    
-                        Text("1200")
-                    }
-                    .padding()
+                    ForEach(clouds, id: \.id) { cloud in
+                        HStack {
+                            Text(cloud.type)
+                            Spacer()
+                            Text(cloud.altitudeString)
+                        }
+                    }.padding()
                 }
-                .font(.headline)
-            
+                
                 HStack{
                     Text("Altimeter")
-                      
+                    
                     Spacer()
-                    Text("29.92")
-                     
+                    Text(self.model?.altimeter?.value?.string ?? "0")
+                    
                 }
                 .font(.headline)
                 .padding()
@@ -196,18 +110,18 @@ struct METARReport: View {
                 VStack{
                     Text("Wind")
                     HStack{
-                        Text((self.model?.windSpeedString ?? "N/A"))
-                        
-                        Text("G " + (self.model?.windGustString ?? "N/A"))
-                        
-                        Text("From " + (self.model?.windDirection ?? "N/A") + "°")
+                        Text("5" + "kt")
+                        Text("G")
+                        Text("12" + "kt")
+                        Text("From")
+                        Text("310" + "°")
                         
                     }
                     .padding()
                     
                 }
                 .font(.headline)
-            
+                
                 HStack {
                     Text("Special Wx")
                     Spacer()
@@ -219,17 +133,17 @@ struct METARReport: View {
                 VStack {
                     Text("Remarks")
                     Spacer()
-                    Text((self.model?.remarks ?? "N/A"))
+                    Text(self.model?.remarks ?? "No Remarks")
                 }
                 .padding()
                 .font(.headline)
+            }
         }
     }
-    
 }
 
 struct METARReport_Previews: PreviewProvider {
     static var previews: some View {
-        METARReport()
+        METARReport(string: "KDAB")
     }
 }
